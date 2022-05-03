@@ -72,10 +72,10 @@ def run_training():
         try:
             # for epoch in range(start_epoch, FLAGS.epochs):
             epoch = start_epoch
-            FLAGS.epochs=epoch+100000
-            print('till',FLAGS.epochs)
+            FLAGS.epochs = epoch + 5000      # shine调整数值: 可调整运行时间
+            print('till', FLAGS.epochs)
             # for epoch in range(start_epoch, FLAGS.epochs):
-            while(epoch<FLAGS.epochs):
+            while epoch < FLAGS.epochs:
                 epoch = epoch + 1
                 n = 0
                 # n_chunk = len(poems_vector) // FLAGS.batch_size
