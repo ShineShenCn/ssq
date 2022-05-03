@@ -69,14 +69,17 @@ def gen_poem():
         # ssqdata = get_exl_data_v3(random_order=True, use_resnet=True)
         ssqdata = get_exl_data_by_period(random_order=False, use_resnet=True, times=10)
         x=[ssqdata[len(ssqdata)-1]]
-        print("input: %s"%(x+np.asarray([[[[0],[0],[0],[0],[0],[0],[-33],[0],[0],[0],[0],[0],[0],[0],[0]]]])))
+        print("input: %s"%(
+                x+np.asarray([[[[0], [0], [0], [0], [0], [0], [-33], [0], [0], [0], [0], [0], [0], [0], [0]]]])
+                    )
+              )
         [predict, last_state] = sess.run([end_points['prediction'], end_points['last_state']],
                                          feed_dict={input_data: x})
-        poem_=np.argmax(np.array(predict),axis=1)
+        poem_ = np.argmax(np.array(predict), axis=1)
         sorted_result = np.argsort(np.array(predict), axis=1)
-        results=poem_+np.asarray([0,0,0,0,0,0,-33])
+        results = poem_+np.asarray([1, 1, 1, 1, 1, 1, -32])   # shine原始为  # results=poem_+np.asarray([0,0,0,0,0,0,-33])
         print(sorted_result)
-        print("output: %s"%results)
+        print("output: %s" % results)
         return poem_
 
 
